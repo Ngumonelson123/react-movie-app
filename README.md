@@ -29,6 +29,7 @@ The application uses **React Hooks** for state management and dynamic rendering.
 
 ## 📂 Project Structure
 src/
+
 ├── components/
 │ ├── AddMovie.js
 │ ├── Filter.js
