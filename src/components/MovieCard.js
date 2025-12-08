@@ -1,4 +1,4 @@
-import React from "react";
+import { Link } from "react-router-dom";
 
 function MovieCard({ title, description, posterURL, rating }) {
   return (
@@ -7,7 +7,9 @@ function MovieCard({ title, description, posterURL, rating }) {
       <h2>{title}</h2>
       <p>{description}</p>
       <p>⭐ {rating}/5</p>
+      <Link to={`/trailer/${title}`}>Watch Trailer</Link>
     </div>
+    
   );
 }
 

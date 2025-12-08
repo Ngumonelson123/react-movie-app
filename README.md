@@ -1,88 +1,92 @@
-# React Movie App Checkpoint
+# React Router Checkpoint – Movie App
 
 ## 📌 Checkpoint Description
 
-This project demonstrates a React Movie App where users can display, add, and filter their favorite movies or TV shows.  
-The application uses **React Hooks** for state management and dynamic rendering.
+This project extends the Movie App from the previous checkpoint by adding **React Router** to enable navigation between pages.  
+Users can now view movie details, including description and trailer, by clicking any movie card.
 
 ---
 
 ## 🎯 Objectives
 
-- Display a list of movies dynamically  
-- Add new movies to the list  
-- Filter movies by title or rating  
-- Use React Hooks (`useState`) for state management  
-- Implement reusable components  
+- Use **React Router** to navigate between views  
+- Add a movie description + YouTube trailer embed  
+- Navigate to a dedicated movie page when a movie card is clicked  
+- Include a **Back to home** button on the movie description page  
 
 ---
 
 ## 🛠 Tools Used
 
-- React (Functional Components)  
-- React Hooks (`useState`)  
+- React  
+- React Router v6  
+- React Hooks (`useState`, `useParams`)  
 - JavaScript (ES6)  
-- CSS (inline styling)  
-- VS Code  
+- CSS  
+
+---
+
+## 📂 Project Structure
+
+
 
 ---
 
 ## 📂 Project Structure
 src/
-
 ├── components/
 │ ├── AddMovie.js
 │ ├── Filter.js
 │ ├── MovieCard.js
-│ └── MovieList.js
+│ ├── MovieList.js
+│ └── MovieDescription.js
 ├── moviesData.js
 ├── App.js
 ├── index.js
 └── App.css
-
 ---
 
-## 📌 Components Overview
+## 🔍 Features Implemented
 
-### 1️⃣ MovieCard
-Displays individual movie details including:
-- Title  
-- Description  
-- Poster image  
-- Rating  
+### ✅ 1. Clickable Movie Cards  
+Each movie card uses a React Router `<Link>` to navigate to:
 
-### 2️⃣ MovieList
-Maps through an array of movies and renders `MovieCard` for each movie.
-
-### 3️⃣ Filter
-Provides input fields to filter movies by:
-- Title (text)  
-- Rating (number)
-
-### 4️⃣ AddMovie
-Form that allows users to add a new movie with all required attributes.
 
 ---
 
 ## 🔍 Features Implemented
 
-- Display pre-defined movies on initial load  
-- Dynamically add new movies  
-- Filter movies based on user input (title and rating)  
-- Real-time updates using React Hooks  
-- Conditional rendering based on filters  
+### ✅ 1. Clickable Movie Cards  
+Each movie card uses a React Router `<Link>` to navigate to:
 
----
+/movie/:title
 
-## ⚙️ How to Run the Project
+### ✅ 2. Description Page  
+Displays the selected movie’s:
 
-### 1️⃣ Install dependencies
-```bash
+- Title  
+- Description  
+- Trailer (YouTube embedded iframe)
+
+### ✅ 3. Back to Home Navigation  
+A button allows the user to return to the main movie list:
+
+✅ 4. Updated Movie Data
+
+Each movie now includes:
+
+description
+
+trailer (YouTube embed link)
+
+⚙️ How to Run the Project
+1️⃣ Install dependencies
 npm install
-2️⃣ Start the project
+
+2️⃣ Start the application
 npm start
 
-3️⃣ Open in browser
+3️⃣ Open the app
 
 Visit:
 
@@ -91,7 +95,16 @@ http://localhost:3000
 📝 Example Movie Object
 {
   title: "Inception",
-  description: "A thief who steals corporate secrets through dream-sharing technology.",
-  posterURL: "https://via.placeholder.com/150",
-  rating: 5
+  description: "A mind-bending thriller about dreams within dreams.",
+  posterURL: "...",
+  rating: 5,
+  trailer: "https://www.youtube.com/embed/YoHD9XEInc0"
 }
+
+👨‍💻 Author
+
+Nelson Ngumo
+
+📄 License
+
+This project is open-source and for educational use.

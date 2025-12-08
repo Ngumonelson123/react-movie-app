@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import moviesData from "./moviesData";
 import MovieList from "./components/MovieList";
+import MovieDescription from "./components/MovieDescription";
 import Filter from "./components/Filter";
 import AddMovie from "./components/AddMovie";
 
@@ -20,17 +22,31 @@ function App() {
   );
 
   return (
-    <div style={{ padding: "20px" }}>
-      <h1>My Movie App</h1>
-      <AddMovie addMovie={addMovie} />
-      <Filter
-        searchTitle={searchTitle}
-        setSearchTitle={setSearchTitle}
-        searchRating={searchRating}
-        setSearchRating={setSearchRating}
-      />
-      <MovieList movies={filteredMovies} />
-    </div>
+    <Router>
+      <div style={{ padding: "20px" }}>
+        <h1>My Movie App</h1>
+
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <AddMovie addMovie={addMovie} />
+                <Filter
+                  searchTitle={searchTitle}
+                  setSearchTitle={setSearchTitle}
+                  searchRating={searchRating}
+                  setSearchRating={setSearchRating}
+                />
+                <MovieList movies={filteredMovies} />
+              </>
+            }
+          />
+
+          <Route path="/movie/:title" element={<MovieDescription movies={movies} />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
